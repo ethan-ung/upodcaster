@@ -16,14 +16,11 @@ import { v4 as uuidv4 } from 'uuid';
 const GenerateThumbnail = ({ setImage, setImageStorageId, image, imagePrompt, setImagePrompt }: GenerateThumbnailProps) => {
   const [isAiThumbnail, setIsAiThumbnail] = useState(false);
   const [isImageLoading, setIsImageLoading] = useState(false);
-  
   const imageRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
-  
   const generateUploadUrl = useMutation(api.files.generateUploadUrl);
   const { startUpload } = useUploadFiles(generateUploadUrl)
   const getImageUrl = useMutation(api.podcasts.getUrl);
-
   const handleGenerateThumbnail = useAction(api.openai.generateThumbnailAction)
 
   const handleImage = async (blob: Blob, fileName: string) => {
