@@ -38,7 +38,7 @@ const { user } = useUser();
 
       <PodcastDetailPlayer 
         isOwner={isOwner}
-        podcastid={podcast._id}
+        podcastId={podcast._id}
         {...podcast}
       />
 
@@ -63,7 +63,7 @@ const { user } = useUser();
             {similarPodcasts?.map(({ _id, podcastTitle, podcastDescription, imageUrl }) => (
               <PodcastCard
                 key={_id}
-                imgUrl={imageUrl}
+                imgUrl={imageUrl!}
                 title={podcastTitle}
                 description={podcastDescription}
                 podcastId={_id}
